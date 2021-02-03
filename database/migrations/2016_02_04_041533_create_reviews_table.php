@@ -16,7 +16,7 @@ class CreateReviewsTable extends Migration
             $table->increments('id');
             $table->string('detail',500);
             $table->integer('point');
-            $table->integer('Restaurant_restaurant_id');
+            $table->integer('Restaurant_restaurant_id')->unsigned();
             $table->foreign('Restaurant_restaurant_id')->references('id')->on('restaurants');
             $table->integer('User_user_id')->unsigned();
             $table->foreign('User_user_id')->references('id')->on('users');
