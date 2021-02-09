@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
+    Route::redirect('/', '/admin/dashboad');
+
+    // // Buses
+    // Route::resource('dashboard', BusController::class);
+
+
+});
