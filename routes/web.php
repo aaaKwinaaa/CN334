@@ -17,12 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
-    Route::redirect('/', '/admin/dashboad');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    // // Buses
-    // Route::resource('dashboard', BusController::class);
+Auth::routes();
 
-
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
