@@ -15,7 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    You are Home Defaul.
+                    You are Reviewer.
                 </div>
             </div>
         </div>

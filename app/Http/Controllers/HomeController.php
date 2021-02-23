@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class HomeController extends Controller
 {
@@ -23,15 +24,28 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(auth()->user()->role_id == 1){
+            return redirect()->route('admin.home');
+        }else if(auth()->user()->role_id == 2){
+            return redirect()->route('reviewer.home');
+        }else {
+            return redirect()->route('restaurant.home');
+        }
+       
     }
-     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+     
     public function adminHome()
     {
         return view('Admin.adminHome');
+    }
+
+    public function reviewerHome()
+    {
+        return view('Reviewer.reviewerHome');
+    }
+
+    public function restaurantHome()
+    {
+        return view('Restaurant.restaurantHome');
     }
 }

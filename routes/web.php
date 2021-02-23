@@ -19,7 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['register' => true]);
+Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/admin/home',[HomeController::class,'adminHome'])->name('admin.home')->middleware('role_id');
+Route::get('/home', [HomeController::class,'index'])->name('home');
+Route::get('/admin/home',[HomeController::class,'adminHome'])->name('admin.home')->middleware('role');
+Route::get('/reviewer/home',[HomeController::class,'reviewerHome'])->name('reviewer.home')->middleware('role');
+Route::get('/restaurant/home',[HomeController::class,'restaurantHome'])->name('restaurant.home')->middleware('role');

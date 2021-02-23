@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -47,10 +47,12 @@ class LoginController extends Controller
         ]);
 
         if(auth()->Auth::attempt(array('email'=>$input['email'], 'password' =>$input['password']  ))){
-            if(auth()->Auth::user()->role_id == 1){
+            if(auth()->user()->role_id == 1){
                 return redirect()->route('admin.home');
-            }else{
-                return redirect()->route('home');
+            }else if(auth()->user()->role_id == 2){
+                return redirect()->route('reviewer.home');
+            }else {
+                return redirect()->route('restaurant.home');
             }
         }else{
             return redirect()->route('login')->with('error',"Email and Password are wrong");
