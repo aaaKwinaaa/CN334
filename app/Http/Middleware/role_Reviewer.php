@@ -5,8 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-
-class role_Auth
+class role_Reviewer
 {
     /**
      * Handle an incoming request.
@@ -15,23 +14,14 @@ class role_Auth
      * @param  \Closure  $next
      * @return mixed
      */
-
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->role_id == 1){ 
+        if(auth()->user()->role_id == 2){ 
             // print $request;
             return $next($request);
 
-        }else if(auth()->user()->role_id == 2){
-            return $next($request);
-
-        }else if(auth()->user()->role_id == 3){
-            return $next($request);
-            
         }else {
             return redirect('/home')->with('error',"You can't 'PERMISSION' to access");
         }
-        
-       
     }
 }

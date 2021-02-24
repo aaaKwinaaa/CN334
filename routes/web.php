@@ -22,6 +22,6 @@ Route::get('/', function () {
 Auth::routes(['register' => false]);
 
 Route::get('/home', [HomeController::class,'index'])->name('home');
-Route::get('/admin/home',[HomeController::class,'adminHome'])->name('admin.home')->middleware('role');
-Route::get('/reviewer/home',[HomeController::class,'reviewerHome'])->name('reviewer.home')->middleware('role');
-Route::get('/restaurant/home',[HomeController::class,'restaurantHome'])->name('restaurant.home')->middleware('role');
+Route::get('/admin/home',[HomeController::class,'adminHome'])->name('admin.home')->middleware('role_admin');
+Route::get('/reviewer/home',[HomeController::class,'reviewerHome'])->name('reviewer.home')->middleware('role_reviewer');
+Route::get('/restaurant/home',[HomeController::class,'restaurantHome'])->name('restaurant.home')->middleware('role_restaurant');
