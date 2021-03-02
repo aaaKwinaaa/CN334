@@ -16,9 +16,12 @@ class CreateRestaurantsTable extends Migration
             $table->increments('id');
             $table->string('restaurant_Name',255);
             $table->string('detail',500);
-            $table->string('photo');
-            $table->integer('User_user_id')->unsigned();
-            $table->foreign('User_user_id')->references('id')->on('users');
+            $table->string('phone');
+            $table->binary('photo');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('status_approve');
+            $table->string('status_active');
             $table->timestamps();
         });
     }
