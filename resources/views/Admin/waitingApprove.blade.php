@@ -4,15 +4,12 @@
 <div class="container">
     <div class="row justify-content-around">
         <div class="container-xl">
-            <div class="table-responsive">
-                <div class="table-wrapper">
-                    <div class="table-title">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h2 ><b class="bg-secondary text-white "> Task </b><b class=" bg-warning text-dark" > Request Restaurant </b> </h2>
-                            </div>
-                            <div class="col-sm-6">	
-                            </div>
+            
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                         <div class="col-sm-6">
+                            <h2 ><b class=" text-white "> Task </b><b class=" text-secondary" > Request Restaurant </b> </h2>
                         </div>
                     </div>
                     <table class="table table-striped table-dark">
@@ -53,14 +50,9 @@
                         </tbody>
                         @endforeach 
                     </table>
-
-                    
-                    
                 </div>
-                
-            </div>        
+            </div>  
         </div>
-    </div>
     </div>
 </div>
 @endsection
