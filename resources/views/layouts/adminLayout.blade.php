@@ -23,13 +23,13 @@
 <body >
     <div id="app" >
         <div class="row"> 
-            <nav class="col navbar navbar-expand-md navbar-light  shadow-sm"  style=" background-color:rgb(161, 210, 255)"  >
+            <nav class="col navbar navbar-expand-md navbar-light  shadow-sm"  style=" background-color:rgb(71, 71, 71)"  >
                 <div class="container"  >
                     {{-- <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span> --}}
-                    <a class="navbar-brand ml-3" href="{{ url('/') }}">
+                    <a class="navbar-brand ml-3"  style="color:rgb(255, 255, 255)" href="{{ url('/') }}">
                         FoodReview Admin
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -56,7 +56,7 @@
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown"  class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" style="color:rgb(255, 255, 255)" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         Admin : {{ Auth::user()->name }}
                                     </a>
 

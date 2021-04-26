@@ -13,14 +13,14 @@
                 </button>  
             
         </div>
-        <div class="col-4">
+        {{-- <div class="col-4">
             <button onclick="" class="card"style="width:300px; height:120px; background-color:#60FF3F;" >
                 <div class="container">
                     <h4 class="mt-3 "><b>Approved Restaurants </b></h4>
                     <p style=" font-size:35px"><b>{{$data[1]}}</b></p> 
                 </div>
             </button>
-        </div>
+        </div> --}}
         <div class="col-4">
             <button onclick="" class="card"style="width:300px; height:120px; background-color:#6f96ff;" >
                 <div class="container">

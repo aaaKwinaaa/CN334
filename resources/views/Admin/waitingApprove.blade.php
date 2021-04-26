@@ -15,7 +15,7 @@
                             </div>
                         </div>
                     </div>
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-dark">
                         <thead>
                             <tr>
                                 <th>No.</th>
@@ -40,7 +40,11 @@
                                 <td>{{$item->phone}}</td>
                                 <td><img src="{{ asset($item->photo)}}" style="width:100px; height:100px;"></td>
                                 <td>
-                                    <button  class="btn btn-info"  >Show</button>
+                                    
+                                        <a class="btn btn-info"  href="{{ route('admin.task.show', $item->id) }}" title="show">
+                                            <i class="fas fa-eye text-success  fa-lg"></i> Show
+                                        </a>
+                                    
                                     <button  class="btn btn-success"  >Approve</button>
                                     <button  class="btn btn-danger" >Reject</button>
                                 </td>

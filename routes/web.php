@@ -28,10 +28,12 @@ Route::get('/admin/home',[HomeController::class,'adminHome'])->name('admin.home'
 // Route::get('/task',[AdminController::class,'task'])->name('admin.task')->middleware('role_admin');
 Route::get('/reviewer/home',[HomeController::class,'reviewerHome'])->name('reviewer.home')->middleware('role_reviewer');
 Route::get('/restaurant/home',[RestaurantController::class,'index'])->name('restaurant.home')->middleware('role_restaurant');
+Route::get('store_image/fetch_image/{id}','RestaurantController@fetch_image');
+
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['role_admin']], function () {
+    
     Route::redirect('/', '/admin/home');
-
     // Task
     Route::resource('task', TaskController::class);
 
@@ -40,14 +42,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['role_admi
 
 Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.', 'middleware' => ['role_restaurant']], function () {
     Route::redirect('/', '/restaurant/home');
-
     // create
     Route::resource('manage',RestaurantController::class);
 
     // // store
     // Route::get('/',[RestaurantController::class,'store'])->name('store');
 
-    
 
-    
 });

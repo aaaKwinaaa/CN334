@@ -18,10 +18,10 @@ class TaskController extends Controller
     {
         $restaurant = Restaurant::all();
         // $restaurant = Restaurant::join('user', 'user.id', '=', 'restaurant.user_id');
-        
-       
-       
-        return view('Admin.waitingApprove',compact('restaurant'));
+
+
+
+        return view('Admin.waitingApprove', compact('restaurant'));
     }
 
     /**
@@ -53,7 +53,13 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $restaurantDetail = Restaurant::find($id);
+
+        // show the view and pass the shark to it
+        // return View::make('admin.showDetail')
+        //     ->with('show', $RestaurantID);
+        return view('admin.showDetailRequest', compact('restaurantDetail'));
     }
 
     /**
