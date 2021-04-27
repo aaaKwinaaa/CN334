@@ -38,12 +38,19 @@
                                 <td><img src="{{ asset($item->photo)}}" style="width:100px; height:100px;"></td>
                                 <td>
                                     
-                                        <a class="btn btn-info"  href="{{ route('admin.task.show', $item->id) }}" title="show">
-                                            <i class="fas fa-eye text-success  fa-lg"></i> Show
-                                        </a>
-                                    
+                                    <a class="btn btn-info"  href="{{ route('admin.task.show', $item->id) }}" title="show">
+                                        <i class="fas fa-eye text-success  fa-lg"></i> Show
+                                    </a>
                                     <button  class="btn btn-success"  >Approve</button>
-                                    <button  class="btn btn-danger" >Reject</button>
+                                    
+                                
+                                    <form  action="{{ route('admin.task.destroy', $item->id) }}"  method="POST" style="display: inline-block;">
+                                        
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="submit" class="btn btn-xs btn-danger" value="Reject" >
+                                        
+                                    </form>
                                 </td>
                         
                             </tr>

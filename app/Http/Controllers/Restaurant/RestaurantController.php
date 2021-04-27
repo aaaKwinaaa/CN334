@@ -7,9 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-use Illuminate\Support\Fascades\Response;
-use Image;
-
 class RestaurantController extends Controller
 {
     /**
@@ -45,13 +42,11 @@ class RestaurantController extends Controller
             'restaurant_name' => '',
             'detail' => '',
             'phone' => '',
-            'image' => 'required|image|max:2048',
+            'image' => '',
             'user_id' => '',
             
         ]);
-       
-
-
+        
         $restaurants = new Restaurant;
         $restaurants->restaurant_name = $request->restaurant_name;
         $restaurants->detail = $request->detail;
@@ -62,20 +57,7 @@ class RestaurantController extends Controller
         $restaurants->status_active = false;
         $restaurants->save();
 
-
         return redirect()->route('restaurant.manage.index');
-    }
-
-    function fetch_image($image_id){
-        $image = Images::findOrFail($image_id);
-
-        $image_file = Image::make($image->photo);
-
-        $response = Response::make($image_file->encode('jpeg'));
-
-        $response_>header('Content-Type','image/jpeg');
-
-        return $response;
     }
 
     /**

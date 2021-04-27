@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 use App\Models\User;
+use SebastianBergmann\GlobalState\Restorer;
 
 class TaskController extends Controller
 {
@@ -82,7 +83,7 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -93,6 +94,8 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reject = Restaurant::find($id);
+        $reject->delete();
+        return redirect()->route('admin.task.index');
     }
 }

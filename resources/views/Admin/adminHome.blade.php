@@ -26,9 +26,11 @@
                 <div class="container">
                     <h4 class="mt-3"><b>Active Status</b></h4>
                     <p style=" font-size:35px"><b>{{$data[2]}}</b></p> 
+                    
                 </div>
             </button>
         </div>
+
         
     </div>
 </div>
