@@ -29,8 +29,10 @@ class HomeController extends Controller
             return redirect()->route('admin.home');
         }else if(auth()->user()->role_id == 2){
             return redirect()->route('reviewer.home');
-        }else {
+        }else if(auth()->user()->role_id == 3){
             return redirect()->route('restaurant.home');
+        }else{
+            return view('welcome2');
         }
        
     }
@@ -60,13 +62,15 @@ class HomeController extends Controller
         }
         
         //Add to Array 
-        $data = [$wait,$approved,$active,$unActive];
+        $restaurant = Restaurant::all();
+        $data = [$wait,$approved,$active,$unActive,$restaurant];
         return view('Admin.adminHome',compact('data'));
     }
 
     public function reviewerHome()
     {
-        return view('Reviewer.reviewerHome');
+        $restaurant = Restaurant::all();
+        return view('Reviewer.reviewerHome',compact('restaurant'));
     }
 
     public function restaurantHome()

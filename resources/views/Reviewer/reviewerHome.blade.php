@@ -2,22 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="justify-content-center">
+        <div class="">
             <div class="card">
-                {{-- <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                    You are Reviewer.
-                </div> --}}
-
                 <section class="ftco-section">
                     <div class="container">
                         <div class="row justify-content-center mb-5 pb-3">
@@ -29,55 +16,43 @@
                     </div>
                     <div class="container-wrap">
                         <div class="row no-gutters d-flex">
-                            <div class="col-lg-4 d-flex ftco-animate fadeInUp ftco-animated">
-                                <div class="services-wrap d-flex">
-                                    <a href="#" class="img" style="background-image: url(images/pizza-1.jpg);"></a>
-                                    <div class="text p-4">
-                                        <h3>Italian Pizza</h3>
-                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
+                             @foreach ($restaurant as $item) 
+                                {{-- <div class="col-lg-4 d-flex ftco-animate fadeInUp ftco-animated">
+                                    <div class="services-wrap d-flex">
+                                       
+                                        <div class="text p-4">
+                                            <h3>{{$item->restaurant_Name}}</h3>
+                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
+                                        </div>
+                                    </div>
+                                </div>  --}}
+
+                                <div class = "card col-3 d-flex ftco-animate fadeInUp ftco-animated  mt-1" style="width:300px">
+                                    <img class="card-img-top" src="https://d2eohwa6gpdg50.cloudfront.net/wp-content/uploads/sites/8/2021/03/08111903/Restaurant_201113_1.jpg" alt="Card image" style="width:100%">
+                                    <div class="card-body">
+                                      <h5 class="card-title">{{$item->restaurant_Name}}</h5>
+                                      <p class="card-text">{{$item->score}} 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                        </svg>
+                                      </p>
+                                      <br>
+                                      <a class="btn btn-info"  href="{{ route('reviewer.page.show', $item->id) }}" title="view">
+                                        <i class="fas fa-eye text-success  fa-lg"></i> View
+                                      </a>
+                                      
+
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </section>
-            {{-- </div>
-        </div> --}}
+            </div>
+        </div>
     </div>
 
-<!-- Write Review Form  -->
-    <br>
-    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#reviewModal">Review</a>
-<!-- Modal -->
-<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Write Review</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-        </button>
-          
-      </div>
-      <div class="modal-body">
-        <form id="reviewForm">
-            @csrf
-            <div class="form-group">
-               <label for="name">Review</label>
-               <input type="text" class="form-control" id="detail" />
-            </div>
-            <div class="form-group">
-               <label for="name">Point</label>
-               <input type="text" class="form-control" id="point" />
-            </div>
-            <button type="submit" class="btn btn-primary">SEND</button> 
-            
-        </form>
-      </div>
-      
-    </div>
-  </div>
-</div>
+
 </div>
 
 @endsection

@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Restaurant\RestaurantController;
 use App\Http\Controllers\Admin\TaskController;
+use App\Http\Controllers\Reviewer\ReviewerController;
 
 
 /*
@@ -18,23 +20,22 @@ use App\Http\Controllers\Admin\TaskController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome2');
 });
 
 Auth::routes(['register' => true]);
 
 Route::get('/home', [HomeController::class,'index'])->name('home');
 Route::get('/admin/home',[HomeController::class,'adminHome'])->name('admin.home')->middleware('role_admin');
-// Route::get('/task',[AdminController::class,'task'])->name('admin.task')->middleware('role_admin');
 Route::get('/reviewer/home',[HomeController::class,'reviewerHome'])->name('reviewer.home')->middleware('role_reviewer');
 Route::get('/restaurant/home',[RestaurantController::class,'index'])->name('restaurant.home')->middleware('role_restaurant');
-Route::get('store_image/fetch_image/{id}','RestaurantController@fetch_image');
+
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['role_admin']], function () {
-    
     Route::redirect('/', '/admin/home');
-    // Task
+
+    // CRUD
     Route::resource('task', TaskController::class);
 
     
@@ -42,11 +43,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['role_admi
 
 Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.', 'middleware' => ['role_restaurant']], function () {
     Route::redirect('/', '/restaurant/home');
-    // create
+
+    //CRUD
     Route::resource('manage',RestaurantController::class);
 
-    // // store
-    // Route::get('/',[RestaurantController::class,'store'])->name('store');
 
 
+});
+
+Route::group(['prefix' => 'reviewer', 'as' => 'reviewer.', 'middleware' => ['role_reviewer']], function () {
+    Route::redirect('/', '/reviewer/home');
+
+    //CRUD
+    Route::resource('page',ReviewerController::class);
 });

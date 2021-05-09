@@ -1,8 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Reviewer;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
+use App\Models\Review;
+
 
 class ReviewerController extends Controller
 {
@@ -13,7 +17,7 @@ class ReviewerController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -34,9 +38,25 @@ class ReviewerController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'detail' => '',
+            'rating' => '',
+            'user_id' => '',
+            'resturant_id' => '',
+            
+        ]);
+        
+        $review = new Review;
+        $review->detail = $request->detail;
+        $review->point = $request->rating;
+        $review->Restaurant_restaurant_id  = $request->resturant_id;
+        $review->User_user_id = auth()->user()->id;
 
+        $review->save();
+
+
+        return redirect()->route('reviewer.page.show',[$request->resturant_id]);
+    }
     /**
      * Display the specified resource.
      *
@@ -45,7 +65,11 @@ class ReviewerController extends Controller
      */
     public function show($id)
     {
-        //
+        $restaurantView = Restaurant::find($id);
+        $reviewThisRestaraurant = Review::all();
+        $data = [$restaurantView,$reviewThisRestaraurant];
+
+        return view('Reviewer.showRestaurant', compact('data'));
     }
 
     /**

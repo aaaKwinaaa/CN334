@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
-class Restaurant extends Model
+class Review extends Model
 {
     use HasFactory;
 
-    public $table = 'restaurants';
+    public $table = 'reviews';
 
     protected $dates = [
         'created_at',
@@ -18,16 +19,16 @@ class Restaurant extends Model
 
     protected $fillable = [
         'id',
-        'restaurant_name',
         'detail',
-        'phone',
-        'photo',
-        'user_id',
-        'status_approve',
-        'status_active',
+        'point',
+        'Restaurant_restaurant_id',
+        'User_user_id',
         'created_at',
         'updated_at',
     ];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'User_user_id');
+    }
 }

@@ -41,8 +41,14 @@
                                     <a class="btn btn-info"  href="{{ route('admin.task.show', $item->id) }}" title="show">
                                         <i class="fas fa-eye text-success  fa-lg"></i> Show
                                     </a>
-                                    <button  class="btn btn-success"  >Approve</button>
-                                    
+
+                                    <form  action="{{ route('admin.task.edit', $item->id) }}"  method="POST" style="display: inline-block;">
+                                        
+                                        <input type="hidden" name="_method" value="Approve">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="submit" class="btn btn-success" value="Approve" >
+                                        
+                                    </form>
                                 
                                     <form  action="{{ route('admin.task.destroy', $item->id) }}"  method="POST" style="display: inline-block;">
                                         
