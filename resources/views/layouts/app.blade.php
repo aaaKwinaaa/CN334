@@ -22,63 +22,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        .rating {
-            float:left;
-        }
-
-        /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
-        follow these rules. Every browser that supports :checked also supports :not(), so
-        it doesn’t make the test unnecessarily selective */
-        .rating:not(:checked) > input {
-            position:absolute;
-            top:-9999px;
-            clip:rect(0,0,0,0);
-        }
-
-        .rating:not(:checked) > label {
-            float:right;
-            width:1em;
-            padding:0 .1em;
-            overflow:hidden;
-            white-space:nowrap;
-            cursor:pointer;
-            font-size:200%;
-            line-height:1.2;
-            color:#ddd;
-            text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
-        }
-
-        .rating:not(:checked) > label:before {
-            content: '★ ';
-        }
-
-        .rating > input:checked ~ label {
-            color: #f70;
-            text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
-        }
-
-        .rating:not(:checked) > label:hover,
-        .rating:not(:checked) > label:hover ~ label {
-            color: gold;
-            text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
-        }
-
-        .rating > input:checked + label:hover,
-        .rating > input:checked + label:hover ~ label,
-        .rating > input:checked ~ label:hover,
-        .rating > input:checked ~ label:hover ~ label,
-        .rating > label:hover ~ input:checked ~ label {
-            color: #ea0;
-            text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
-        }
-
-        .rating > label:active {
-            position:relative;
-            top:2px;
-            left:2px;
-        }
-    </style>
+    
     
     
 
@@ -94,16 +38,8 @@
                 <a class="navbar-brand ml-3"  style="color:rgb(0, 0, 0)" >
                     FoodReview
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->

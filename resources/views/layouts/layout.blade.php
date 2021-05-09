@@ -123,63 +123,54 @@
     </head>
 
   <!-- Navbar (sit on top) -->
-  <div class="w3-top">
+  <div class="w3-top" >
     
     <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
       <a href="/" class=" w3-button">Food Review</a>
       
       <!-- Right-sided navbar links. Hide them on small screens -->
-      @if(Route::has('login'))
-              <div class="hidden fixed top-0 right-0 px-6 py-2 sm:block">
-                  @auth
-                      <a href="{{ url('/home') }}" class="w3-bar-item w3-button">Home</a>
-                      <a href="#about" class="w3-bar-item w3-button">About</a>
-                  @else
-                      <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>
+        @guest
+            @if (Route::has('register'))
+                    <a class="w3-button " style="float: right;" href="{{ route('register') }}">{{ __('Register') }}</a>
+            @endif
+            
+            @if (Route::has('login'))
+                    <a class="w3-button " style="float: right;" href="{{ route('login') }}">{{ __('Login') }}</a>
+            @endif
+                            
+            
+        @else
+            <ul class=""  style="float: right;">
+                <a id="navbarDropdown" class=" w3-button dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                     {{ Auth::user()->name }}
+                </a>
 
-                      @if (Route::has('register'))
-                          <a href="{{ route('register') }}" class="w3-bar-item w3-button">Register</a>
-                      @endif
-                  @endauth
-              </div>
-      @endif
+                <li class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
+                    <a class="ml-3" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                    </form>
+                </li>
+            </ul>
+        @endguest
       
     </div>
   </div>
   <!-- Header -->
-  <header class="" style="max-width:1600px;min-width:500px" id="home">
-      <img class="w3-image" src="/image/homepage-bg.jpg" alt="Hamburger Catering" width="1600px" height="400px">
-      <h1 class="centered"  style=" color:rgb(255, 255, 255);font-size: 100px">Food Review</h1>
-      <a id="btn1" type="button" style="width: 200px;height:35px; font-size:15px" class="btn btn-warning"  href="{{ route('login') }}"> Review Now</a>
-      
- 
-  </header>
-  <body>
+  
+    <body>
+        
     
-  <!-- Page content -->
-  <div class="w3-content" style="max-width:1100px">
 
-    <!-- About Section -->
-    {{-- <div class="w3-row w3-padding-64" id="about">
-      <div class="w3-col m6 w3-padding-large w3-hide-small">
-        <img src="/w3images/tablesetting2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
-        <img src="img_avatar.png" alt="Avatar" class="avatar">
-      </div>
+        <main class="py-4 mt-5">
+             @yield('content')
+        </main>
 
-      <div class="w3-col m6 w3-padding-large">
-        <h1 class="w3-center">About Catering</h1><br>
-        <h5 class="w3-center">Tradition since 1889</h5>
-        <p class="w3-large">The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.We only use <span class="w3-tag w3-light-grey">seasonal</span> ingredients.</p>
-        <p class="w3-large w3-text-grey w3-hide-medium">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-    </div>
     
-    <hr> --}}
-    
-    
-  <!-- End page content -->
-  </div>
-
-  <!-- Footer -->
-  </body>
+</body>
 </html>
