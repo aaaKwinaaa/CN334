@@ -59,14 +59,14 @@
         left:2px;
     }
 </style>
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-around">
         <div class="container-xl ">
             <div class="row">
                 <div class="col-sm-6 card " style="width: 700px ; height:600px">
                     <br>
                     <h4>Name Restaurant : {{$data[0]->restaurant_Name}}</h4>
-                    <p class="card-text">Rate Review : {{$data[0]->score}}
+                    <p class="card-text">Rate Review : {{$data[0]->rating}}
                         <span style="font-size:25px;color:rgb(255, 255, 50);" >&starf;</span>
                     </p>
                     <img class="card-img-top" src="https://d2eohwa6gpdg50.cloudfront.net/wp-content/uploads/sites/8/2021/03/08111903/Restaurant_201113_1.jpg" alt="Card image" style="width:100%">

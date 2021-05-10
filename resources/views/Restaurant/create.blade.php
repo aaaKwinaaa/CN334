@@ -8,7 +8,7 @@
                
                 <h2>Create Restaurant</h2>
 
-                <form method="POST" action="{{ route('restaurant.manage.store') }}" >
+                <form method="POST" action="{{ route('restaurant.manage.store') }}" enctype="multipart/form-data" >
                     @csrf
 
                     <div class="form-group row" >

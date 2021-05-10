@@ -13,14 +13,14 @@
                 </button>  
             
         </div>
-        {{-- <div class="col-4">
+        <div class="col-4">
             <button onclick="" class="card"style="width:300px; height:120px; background-color:#60FF3F;" >
                 <div class="container">
-                    <h4 class="mt-3 "><b>Approved Restaurants </b></h4>
+                    <h4 class="mt-3 "><b>All Comment </b></h4>
                     <p style=" font-size:35px"><b>{{$data[1]}}</b></p> 
                 </div>
             </button>
-        </div> --}}
+        </div>
         <div class="col-4">
             <button onclick="" class="card"style="width:300px; height:120px; background-color:#6f96ff;" >
                 <div class="container">
@@ -67,7 +67,11 @@
                                 <td>{{$item->restaurant_Name}}</td>
                                 <td>{{$item->user_id}}</td>
                                 <td>{{$item->phone}}</td>
-                                <td><img src="{{ asset($item->photo)}}" style="width:100px; height:100px;"></td>
+                                <td>
+                                    {{-- <img src="{{ asset($item->photo)}}" style="width:100px; height:100px;"> --}}
+                                    <img src="data:image/png;base64,{{ chunk_split(base64_encode($item->photo)) }}" height="100" width="100">
+                                    
+                                </td>
                                 <td>
                                     
                                     <a class="btn btn-info"  href="{{ route('admin.task.show', $item->id) }}" title="show">

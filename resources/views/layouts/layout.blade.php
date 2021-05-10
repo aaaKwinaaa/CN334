@@ -126,20 +126,31 @@
   <div class="w3-top" >
     
     <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-      <a href="/" class=" w3-button">Food Review</a>
+      {{-- <a href="{{ url('/') }}"  class="w3-bar-item w3-button" >Home</a> --}}
+      <a href="{{ url('/home') }}" style=""  class=" w3-button">Food Review</a>
+      
       
       <!-- Right-sided navbar links. Hide them on small screens -->
         @guest
-            @if (Route::has('register'))
-                    <a class="w3-button " style="float: right;" href="{{ route('register') }}">{{ __('Register') }}</a>
-            @endif
-            
-            @if (Route::has('login'))
-                    <a class="w3-button " style="float: right;" href="{{ route('login') }}">{{ __('Login') }}</a>
-            @endif
+              @if(Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-2 sm:block">
+                    @auth
+                        <a href="{{ url('/') }}" class="w3-bar-item w3-button">Home</a>
+                        <a href="#about" class="w3-bar-item w3-button">About</a>
+                        <a href="{{ url('/home') }}" style=""  class=" w3-button">Food Review</a>
+                    @else
+                        <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="w3-bar-item w3-button">Register</a>
+                        @endif
+                    @endauth
+                </div>
+              @endif
                             
             
         @else
+            
             <ul class=""  style="float: right;">
                 <a id="navbarDropdown" class=" w3-button dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                      {{ Auth::user()->name }}
@@ -151,6 +162,7 @@
                             document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                     </a>
+                    
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
@@ -158,12 +170,14 @@
                 </li>
             </ul>
         @endguest
+
+        
       
     </div>
   </div>
   <!-- Header -->
   
-    <body>
+    <body style="background-color: rgb(255, 255, 255);">
         
     
 

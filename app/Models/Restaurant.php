@@ -26,7 +26,6 @@ class Restaurant extends Model
         'status_approve',
         'status_active',
         'created_at',
-        'updated_at',
     ];
 
     

@@ -66,7 +66,7 @@ class ReviewerController extends Controller
     public function show($id)
     {
         $restaurantView = Restaurant::find($id);
-        $reviewThisRestaraurant = Review::all();
+        $reviewThisRestaraurant = Review::all()->where('Restaurant_restaurant_id', $id);
         $data = [$restaurantView,$reviewThisRestaraurant];
 
         return view('Reviewer.showRestaurant', compact('data'));

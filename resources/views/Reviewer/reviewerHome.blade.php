@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container" style="margin-top: 50px">
+<div class="container mt-5" >
     <div class="justify-content-center">
         <div class="">
             <div class="card">
@@ -31,7 +31,7 @@
                                     <img class="card-img-top" src="https://d2eohwa6gpdg50.cloudfront.net/wp-content/uploads/sites/8/2021/03/08111903/Restaurant_201113_1.jpg" alt="Card image" style="width:100%">
                                     <div class="card-body">
                                       <h5 class="card-title">{{$item->restaurant_Name}}</h5>
-                                      <p class="card-text">{{$item->score}} </p>
+                                      <p class="card-text">{{$item->rating}} </p>
                                       <br>
                                       <a class="btn btn-info"  href="{{ route('reviewer.page.show', $item->id) }}" title="view">
                                         <i class="fas fa-eye text-success  fa-lg"></i> View

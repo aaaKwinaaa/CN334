@@ -47,6 +47,7 @@ Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.', 'middleware' => [
     //CRUD
     Route::resource('manage',RestaurantController::class);
 
+   
 
 
 });

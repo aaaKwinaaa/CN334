@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
-use App\Models\User;
-use SebastianBergmann\GlobalState\Restorer;
+use App\Models\Review;
+
 
 class TaskController extends Controller
 {
@@ -38,6 +38,7 @@ class TaskController extends Controller
                 $unActive +=1;
             }
         }
+        
         
         //Add to Array 
         $restaurant = Restaurant::all();
@@ -120,9 +121,14 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {   
+        $reviewThisRestaraurant = Review::all()->where('Restaurant_restaurant_id', $id); 
+        $reviewThisRestaraurant->delete();
+
+
         $reject = Restaurant::find($id);
         $reject->delete();
+
         return redirect()->route('admin.task.index');
     }
 }

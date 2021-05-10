@@ -20,7 +20,7 @@ class Review extends Model
     protected $fillable = [
         'id',
         'detail',
-        'point',
+        'rating',
         'Restaurant_restaurant_id',
         'User_user_id',
         'created_at',

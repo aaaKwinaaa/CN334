@@ -51,7 +51,19 @@ class RestaurantController extends Controller
         $restaurants->restaurant_name = $request->restaurant_name;
         $restaurants->detail = $request->detail;
         $restaurants->phone = $request->phone;
-        $restaurants->photo = $request->image;
+
+
+        // $restaurants->photo = $request->image;
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('image/restaurant/', $filename);
+            $restaurants->photo = $filename;
+        }else{
+            $restaurants->photo = '';
+
+        }
         $restaurants->user_id = auth()->user()->id;
         $restaurants->status_approve = false;
         $restaurants->status_active = false;
@@ -102,9 +114,8 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        $restaurant->routes()->sync([]);
-        $restaurant->delete();
 
-        return redirect()->route('restaurant.index');
     }
+
+  
 }
