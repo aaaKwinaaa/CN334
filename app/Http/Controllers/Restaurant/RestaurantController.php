@@ -112,9 +112,12 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Restaurant $restaurant)
+    public function destroy($id)
     {
+        $reject = Restaurant::find($id);
+        $reject->delete();
 
+        return redirect()->route('restaurant.task.index');
     }
 
   

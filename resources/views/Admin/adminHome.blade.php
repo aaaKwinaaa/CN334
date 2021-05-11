@@ -69,7 +69,7 @@
                                 <td>{{$item->phone}}</td>
                                 <td>
                                     {{-- <img src="{{ asset($item->photo)}}" style="width:100px; height:100px;"> --}}
-                                    <img src="data:image/png;base64,{{ chunk_split(base64_encode($item->photo)) }}" height="100" width="100">
+                                    <img src="{{ asset('image/restaurant/'.$item->photo)}}" style="width: 155px" alt="Image" > 
                                     
                                 </td>
                                 <td>
@@ -78,10 +78,7 @@
                                         <i class="fas fa-eye text-success  fa-lg"></i> Show
                                     </a>
 
-                                    <form  action="{{ route('admin.task.update', $item->id) }}"  method="POST" style="display: inline-block;">
-                                        
-                                        <input type="hidden" name="_method" value="UPDATE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <form  action="{{ route('admin.task.update', $item->id) }}"  method="PUT" style="display: inline-block;">
                                         <input type="submit" class="btn btn-success" value="Approve" >
                                         
                                     </form>

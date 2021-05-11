@@ -99,13 +99,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $request->validate([
-            'status_approve' => '',
-            'status_active' => ''
-        ]);
-        
+
         $restaurants = Restaurant::find($id);
         $restaurants->status_approve = true;
         $restaurants->status_active = true;

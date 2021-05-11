@@ -48,7 +48,7 @@ class ReviewerController extends Controller
         
         $review = new Review;
         $review->detail = $request->detail;
-        $review->point = $request->rating;
+        $review->rating = $request->rating;
         $review->Restaurant_restaurant_id  = $request->resturant_id;
         $review->User_user_id = auth()->user()->id;
 

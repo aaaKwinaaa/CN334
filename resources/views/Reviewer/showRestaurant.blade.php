@@ -84,7 +84,7 @@
                             @foreach ($data[1] as $item)
                                     {{$item->user->name }} : 
                                     {{$item->detail}}
-                                    {{$item->point}}
+                                    {{$item->rating}}
                                     <br>
                             @endforeach
                        </div>
