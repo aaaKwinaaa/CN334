@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Review;
 
-class ApprovedController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class ApprovedController extends Controller
      */
     public function index()
     {
-        //
+        $comment = Review::all();
+        return view('Admin.commentManage',compact('comment'));
     }
 
     /**
@@ -79,6 +82,8 @@ class ApprovedController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Review::find($id);
+        $comment->delete();
+        return redirect()->route('admin.comment.index');
     }
 }

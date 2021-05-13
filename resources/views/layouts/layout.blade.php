@@ -115,6 +115,19 @@
           .dropdown:hover .dropdown-content {
             display: block;
           }
+            .chip {
+            display: inline-block;
+            padding: 0 20px;
+            height: auto;
+            width: 300px;
+            font-size: 13px;
+            line-height: 30px;
+            border-radius: 5px;
+            border: 1px solid rgb(196, 231, 255);
+            background-color: #ffffff;
+            box-shadow: 8px 8px 8px 0px rgba(0,0,0,0.2);
+          }
+          
           </style>
 
         <!-- Script -->
@@ -182,7 +195,7 @@
         
     
 
-        <main class="py-4 mt-5">
+        <main class="py-4 " style="margin-top: 30px">
              @yield('content')
         </main>
 

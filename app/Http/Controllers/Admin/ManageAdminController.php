@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Restaurant;
-use App\Models\Review;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
-class ActiveRestaurantController extends Controller
+class ManageAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,7 @@ class ActiveRestaurantController extends Controller
      */
     public function index()
     {
- 
-        //Add to Array 
-        $restaurant = Restaurant::all();
-        
-        return view('admin.activeRestaurant',compact('restaurant'));
+        return view('admin.userAdmin');
     }
 
     /**
@@ -41,7 +37,21 @@ class ActiveRestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role_id' => [],
+        ]);
+
+        User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'role_id' => $request['role_id'],
+        ]);
+
+        return redirect()->route('admin.account.index')->with('success', 'Create Admin Account Successfully.');;
     }
 
     /**
@@ -52,7 +62,8 @@ class ActiveRestaurantController extends Controller
      */
     public function show($id)
     {
-        //
+        $profile = User::find($id);
+        return view('admin.ProfileAdmin', compact('profile'));
     }
 
     /**
@@ -63,7 +74,7 @@ class ActiveRestaurantController extends Controller
      */
     public function edit($id)
     {
-        //
+      //
     }
 
     /**
@@ -75,7 +86,22 @@ class ActiveRestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'name' => [ 'string', 'max:255'],
+            'email' => [ 'string', 'email', 'max:255'],
+            'password' => [ 'string', 'min:8'],
+        ]);
+        
+        $userEdit = User::find($id);
+        $userEdit->name = $request->name;
+        $userEdit->email =$request->email;
+        if($request->password != null){
+            $userEdit->password = Hash::make($request['password']);
+        }
+        $userEdit->save();
+
+        return redirect()->route('admin.task.index');
     }
 
     /**
@@ -86,9 +112,6 @@ class ActiveRestaurantController extends Controller
      */
     public function destroy($id)
     {
-        $delete = Restaurant::find($id);
-        $delete->delete();
-
-        return redirect()->route('admin.active.index');
+        //
     }
 }

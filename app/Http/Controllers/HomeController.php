@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\Restaurant;
+use App\Models\Review;
 
 class HomeController extends Controller
 {
@@ -39,38 +40,16 @@ class HomeController extends Controller
      
     public function adminHome()
     {
-        $dashboard = Restaurant::all();
-        $wait = 0;
-        $approved = 0;
-        $active = 0;
-        $unActive = 0;
-        foreach($dashboard as $item){
-
-            //Check Status Approve
-            if($item->status_approve != true){    
-                $wait +=1;
-            }else{
-                $approved +=1;
-            }
         
-            //Check Status Active
-            if ($item->status_active == true) {
-                $active +=1;
-            }else{
-                $unActive +=1;
-            }
-        }
-        
-        //Add to Array 
-        $restaurant = Restaurant::all();
-        $data = [$wait,$approved,$active,$unActive,$restaurant];
-        return view('Admin.adminHome',compact('data'));
+        return redirect()->route('admin.task.index');
     }
 
     public function reviewerHome()
     {
+        $review = Review::all();
         $restaurant = Restaurant::all();
-        return view('Reviewer.reviewerHome',compact('restaurant'));
+        $data =[$restaurant,$review];
+        return view('Reviewer.reviewerHome',compact('data'));
     }
 
     public function restaurantHome()

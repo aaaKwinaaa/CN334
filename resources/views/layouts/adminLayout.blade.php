@@ -22,18 +22,18 @@
         body{
           background-color: rgb(31, 31, 31);
         }
-        table.dataTable thead .sorting:after,
-        table.dataTable thead .sorting:before,
-        table.dataTable thead .sorting_asc:after,
-        table.dataTable thead .sorting_asc:before,
-        table.dataTable thead .sorting_asc_disabled:after,
-        table.dataTable thead .sorting_asc_disabled:before,
-        table.dataTable thead .sorting_desc:after,
-        table.dataTable thead .sorting_desc:before,
-        table.dataTable thead .sorting_desc_disabled:after,
-        table.dataTable thead .sorting_desc_disabled:before {
-        bottom: .5em;
+        div.tablecomment {
+            height: 500px;
+            width: 200px;
+            overflow-y: scroll;
+            
         }
+        .fixed_header{
+            width: 400px;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
     </style>
 
 </head>
@@ -79,9 +79,9 @@
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a href="{{url('/admin/home')}}"  class="dropdown-item" >Dashboard</a>
-                                        <a href="{{route('admin.task.index')}}"  class="dropdown-item" >Task</a>
-                                        <a href="#"  class="dropdown-item" >Profile</a>
-                                        <a href="#"  class="dropdown-item" >User Admin</a>
+                                        {{-- <a href="{{route('admin.task.index')}}"  class="dropdown-item" >Task</a> --}}
+                                        <a href="{{ route('admin.account.show', Auth::user()->id) }}"  class="dropdown-item" >Profile</a>
+                                        <a href="{{ route('admin.account.index') }}"  class="dropdown-item"  >User Admin</a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">

@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Restaurant\RestaurantController;
 use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Reviewer\ReviewerController;
+use App\Http\Controllers\Admin\ManageAdminController;
+use App\Http\Controllers\Admin\CommentController;
+use App\Http\Controllers\Admin\ActiveRestaurantController;
 
 
 /*
@@ -37,7 +40,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['role_admi
 
     // CRUD
     Route::resource('task', TaskController::class);
+    
 
+
+    //User Admin Management
+    Route::resource('account',ManageAdminController::class);
+
+    //Comment Management
+    Route::resource('comment',CommentController::class);
+
+    //Restaurant Active Management
+    Route::resource('active',ActiveRestaurantController::class);
+
+    
     
 });
 

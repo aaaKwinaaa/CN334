@@ -58,6 +58,21 @@
         top:2px;
         left:2px;
     }
+
+
+    #style-1::-webkit-scrollbar
+    {
+        width: 12px;
+        border-radius: 25px;
+        background-color: #00000018;
+    }
+
+    #style-1::-webkit-scrollbar-thumb
+    {
+        border-radius: 25px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: rgb(78, 78, 78);
+    }
 </style>
 <div class="container mt-5">
     <div class="row justify-content-around">
@@ -66,33 +81,43 @@
                 <div class="col-sm-6 card " style="width: 700px ; height:600px">
                     <br>
                     <h4>Name Restaurant : {{$data[0]->restaurant_Name}}</h4>
-                    <p class="card-text">Rate Review : {{$data[0]->rating}}
-                        <span style="font-size:25px;color:rgb(255, 255, 50);" >&starf;</span>
+                    <p class="card-text">Rate Review : {{$data[2]}}
+                        <span style="font-size:25px;color:rgb(255, 208, 0);" >&starf;</span> 
                     </p>
-                    <img class="card-img-top" src="https://d2eohwa6gpdg50.cloudfront.net/wp-content/uploads/sites/8/2021/03/08111903/Restaurant_201113_1.jpg" alt="Card image" style="width:100%">
+                    <img src="{{ asset('image/restaurant/'.$data[0]->photo)}}"  alt="Card image" style="height:350px">
                     <br>
                     <p class="card-text">Detail : {{$data[0]->detail}} </p>
                     <p class="card-text">Phone : {{$data[0]->phone}} </p>
                     
                 </div>
                 <div class="col-sm-6" >
-                    <div id="review">
-                        <div class="col-sm-6 card " style="width:100% ;"> 
-                            <?php
-                            // print_r($data[1])    
-                            ?>
+                    <h5 >
+                        <b class="" style="color:rgb(161, 161, 161); margin-left:150px;">{{$data[3]}} comments</b>
+                        
+                            <svg class="svg-icon" viewBox="0 0 20 20" style="width:25px;display: inline-flex;align-self: center;position: relative;">
+                                <path d="M17.211,3.39H2.788c-0.22,0-0.4,0.18-0.4,0.4v9.614c0,0.221,0.181,0.402,0.4,0.402h3.206v2.402c0,0.363,0.429,0.533,0.683,0.285l2.72-2.688h7.814c0.221,0,0.401-0.182,0.401-0.402V3.79C17.612,3.569,17.432,3.39,17.211,3.39M16.811,13.004H9.232c-0.106,0-0.206,0.043-0.282,0.117L6.795,15.25v-1.846c0-0.219-0.18-0.4-0.401-0.4H3.189V4.19h13.622V13.004z"></path>
+                            </svg>
+                       
+                    </h5>
+  
+                    <div id="style-1" class="mt-3" style=" width:400px; margin: auto; height:470px; overflow-y: scroll;  ">
+                        <div class="col" > 
                             @foreach ($data[1] as $item)
-                                    {{$item->user->name }} : 
-                                    {{$item->detail}}
-                                    {{$item->rating}}
+                                <p class="chip" ><b>{{$item->user->name }} :</b> 
+                                     
+                                    @for ($i = 0; $i < $item->rating; $i++)
+                                        <span style="font-size:15px;color:rgb(255, 208, 0);">&starf;</span>
+                                    @endfor
                                     <br>
+                                    {{$item->detail}}
+                                </p>
                             @endforeach
                        </div>
                     </div>
-                    <div>
+                    <div style=" margin-left:100px;">
                         <!-- Write Review Form  -->
                         <br>
-                        <a href="#" class="btn btn-success" data-toggle="modal" data-target="#reviewModal">Review</a>
+                        <a href="#" class="btn btn-success mx-5" style="width: 200px;"  data-toggle="modal" data-target="#reviewModal">Review</a>
                         <!-- Modal -->
                         <form method="POST" action="{{ route('reviewer.page.store') }}" >
                             @csrf
@@ -110,7 +135,7 @@
                                                 @csrf
                                                 <div class="form-group">
                                                     <label for="name">Review</label>
-                                                    <input id="detail" type="text" class="form-control " name="detail" value="{{ old('detail') }}"  required />
+                                                    <input id="detail" type="text" class="form-control " name="detail" value=" {{ old('detail') }}"  required />
                                                 
                                                 </div>
                                                 

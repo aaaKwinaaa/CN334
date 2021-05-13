@@ -41,7 +41,9 @@ class TaskController extends Controller
         
         
         //Add to Array 
-        $restaurant = Restaurant::all();
+         $restaurant = Restaurant::all()->where('status_approve', false);
+        
+
         $data = [$wait,$approved,$active,$unActive,$restaurant];
         return view('Admin.adminHome',compact('data'));
 
@@ -118,10 +120,9 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {   
-        $reviewThisRestaraurant = Review::all()->where('Restaurant_restaurant_id', $id); 
+        $reviewThisRestaraurant = Review::where('Restaurant_restaurant_id', $id); 
         $reviewThisRestaraurant->delete();
-
-
+ 
         $reject = Restaurant::find($id);
         $reject->delete();
 

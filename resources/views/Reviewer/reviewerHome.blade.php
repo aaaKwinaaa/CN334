@@ -14,32 +14,23 @@
                             </div>
                         </div>
                     </div>
+                   
                     <div class="container-wrap">
                         <div class="row no-gutters d-flex">
-                             @foreach ($restaurant as $item) 
-                                {{-- <div class="col-lg-4 d-flex ftco-animate fadeInUp ftco-animated">
-                                    <div class="services-wrap d-flex">
-                                       
-                                        <div class="text p-4">
-                                            <h3>{{$item->restaurant_Name}}</h3>
-                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia </p>
+                             @foreach ($data[0] as $item) 
+                                @if ($item->status_active == true)
+                                    <div class = "card col-3 d-flex ftco-animate fadeInUp ftco-animated  mt-1 " style="width:300px; ">
+                                        <img src="{{ asset('image/restaurant/'.$item->photo)}}"  alt="Card image" style="height:175px">
+                                        <div class="card-body">
+                                            <h6 class="card-title">{{$item->restaurant_Name}}</h6>
+                                            {{-- <p class="card-text">{{$item->rating}} <span style="font-size:25px;color:rgb(255, 217, 0);" >&starf;</span> </p> --}}
+                                            <br>
+                                            <a class="btn btn-info"  href="{{ route('reviewer.page.show', $item->id) }}" title="view">
+                                                View Restaurant 
+                                            </a>
                                         </div>
                                     </div>
-                                </div>  --}}
-
-                                <div class = "card col-4 d-flex ftco-animate fadeInUp ftco-animated  mt-1" style="width:300px">
-                                    <img class="card-img-top" src="https://d2eohwa6gpdg50.cloudfront.net/wp-content/uploads/sites/8/2021/03/08111903/Restaurant_201113_1.jpg" alt="Card image" style="width:100%">
-                                    <div class="card-body">
-                                      <h5 class="card-title">{{$item->restaurant_Name}}</h5>
-                                      <p class="card-text">{{$item->rating}} </p>
-                                      <br>
-                                      <a class="btn btn-info"  href="{{ route('reviewer.page.show', $item->id) }}" title="view">
-                                        <i class="fas fa-eye text-success  fa-lg"></i> View
-                                      </a>
-                                      
-
-                                    </div>
-                                </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>

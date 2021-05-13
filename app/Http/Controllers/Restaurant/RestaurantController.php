@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\Review;
 
 class RestaurantController extends Controller
 {
@@ -80,7 +81,7 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        //
+        $review = Review::where('Restaurant_restaurant_id', $id);
     }
 
     /**
@@ -114,10 +115,13 @@ class RestaurantController extends Controller
      */
     public function destroy($id)
     {
+        $reviewThisRestaraurant = Review::where('Restaurant_restaurant_id', $id); 
+        $reviewThisRestaraurant->delete();
+ 
         $reject = Restaurant::find($id);
         $reject->delete();
 
-        return redirect()->route('restaurant.task.index');
+        return redirect()->route('admin.task.index');
     }
 
   

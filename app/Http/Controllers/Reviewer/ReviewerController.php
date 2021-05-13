@@ -67,7 +67,19 @@ class ReviewerController extends Controller
     {
         $restaurantView = Restaurant::find($id);
         $reviewThisRestaraurant = Review::all()->where('Restaurant_restaurant_id', $id);
-        $data = [$restaurantView,$reviewThisRestaraurant];
+        $rating = 0;
+        $count = count($reviewThisRestaraurant);
+        foreach ($reviewThisRestaraurant as $key => $value) {
+            $rating += $reviewThisRestaraurant[$key]->rating;
+        };
+        if(count($reviewThisRestaraurant) <= 0){
+            $totalRating = 0;
+        }else{
+            $totalRating = number_format(($rating / count($reviewThisRestaraurant)), 1, '.', '');
+        }
+        
+        
+        $data = [$restaurantView,$reviewThisRestaraurant,$totalRating,$count];
 
         return view('Reviewer.showRestaurant', compact('data'));
     }
@@ -103,6 +115,8 @@ class ReviewerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleteComment = Review::find($id);
+        $deleteComment->delete();
+        return redirect();
     }
 }
