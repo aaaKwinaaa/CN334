@@ -104,7 +104,33 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
-       //
+        $request->validate([
+            'name' => [ 'string', 'max:255'],
+            'detail' => [ 'string', 'max:255'],
+            'phone' => [ 'string', ],
+            'image' => '',
+        ]);
+        
+        $rerstaurantEdit = Restaurant::find($id);
+        $rerstaurantEdit->restaurant_Name = $request->name;
+        $rerstaurantEdit->detail = $request->detail;
+        $rerstaurantEdit->phone = $request->phone;
+        $rerstaurantEdit->status_approve = false;
+
+        // if($request->hasFile('image')){
+        //     $file = $request->file('image');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $filename = time().'.'.$extension;
+        //     $file->move('image/restaurant/', $filename);
+        //     $rerstaurantEdit->photo = $filename;
+        // }else{
+        //     $rerstaurantEdit->photo = '';
+
+        // }
+
+        $rerstaurantEdit->save();
+
+        return redirect()->route('restaurant.manage.index');
     }
 
     /**

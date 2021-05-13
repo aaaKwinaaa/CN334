@@ -4,11 +4,17 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Restaurant\RestaurantController;
-use App\Http\Controllers\Admin\TaskController;
+use App\Http\Controllers\Restaurant\ProfileRestaurantController;
+
+
 use App\Http\Controllers\Reviewer\ReviewerController;
+use App\Http\Controllers\Reviewer\ProfileReviewerController;
+
+use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Admin\ManageAdminController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\ActiveRestaurantController;
+
 
 
 /*
@@ -62,6 +68,8 @@ Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.', 'middleware' => [
     //CRUD
     Route::resource('manage',RestaurantController::class);
 
+    //Profile Management
+    Route::resource('profile',ProfileRestaurantController::class);
    
 
 
@@ -72,4 +80,7 @@ Route::group(['prefix' => 'reviewer', 'as' => 'reviewer.', 'middleware' => ['rol
 
     //CRUD
     Route::resource('page',ReviewerController::class);
+
+    //Profile Management
+    Route::resource('profile',ProfileReviewerController::class);
 });

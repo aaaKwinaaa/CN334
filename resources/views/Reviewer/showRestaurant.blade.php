@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-sm-6 card " style="width: 700px ; height:600px">
                     <br>
-                    <h4>Name Restaurant : {{$data[0]->restaurant_Name}}</h4>
+                    <h4>Name : {{$data[0]->restaurant_Name}}</h4>
                     <p class="card-text">Rate Review : {{$data[2]}}
                         <span style="font-size:25px;color:rgb(255, 208, 0);" >&starf;</span> 
                     </p>

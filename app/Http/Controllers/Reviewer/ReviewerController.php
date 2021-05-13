@@ -17,7 +17,10 @@ class ReviewerController extends Controller
      */
     public function index()
     {
-        
+        $review = Review::all();
+        $restaurant = Restaurant::all();
+        $data =[$restaurant,$review];
+        return view('Reviewer.reviewerHome',compact('data'));
     }
 
     /**

@@ -166,12 +166,21 @@
         @else
             
             <ul class=""  style="float: right;">
+             
                 <a id="navbarDropdown" class=" w3-button dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                      {{ Auth::user()->name }}
                 </a>
 
+                  
                 <li class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
-                    <a class="ml-3" href="{{ route('logout') }}"
+                 
+                  @if (Auth::user()->role_id == 2)
+                    <a href="{{ route('reviewer.profile.show', Auth::user()->id) }}"  class="dropdown-item" >Profile</a>
+                  @else
+                    <a href="{{ route('restaurant.profile.show', Auth::user()->id) }}"  class="dropdown-item" >Profile</a>
+                  @endif
+
+                    <a class="ml-4" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}

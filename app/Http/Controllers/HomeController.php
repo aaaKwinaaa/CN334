@@ -46,14 +46,11 @@ class HomeController extends Controller
 
     public function reviewerHome()
     {
-        $review = Review::all();
-        $restaurant = Restaurant::all();
-        $data =[$restaurant,$review];
-        return view('Reviewer.reviewerHome',compact('data'));
+        return redirect()->route('reviewer.page.index');
     }
 
     public function restaurantHome()
     {
-        return view('Restaurant.restaurantHome');
+        return redirect()->route('retaurant.manage.index');
     }
 }
