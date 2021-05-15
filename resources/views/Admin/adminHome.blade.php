@@ -17,7 +17,7 @@
             <button onclick="{location.href='{{route('admin.comment.index')}}'}" class="card"style="width:100%; height:120px; background-color:#60FF3F;" >
                 <div class="container">
                     <h4 class="mt-3 "><b>All Comment </b></h4>
-                    <p style=" font-size:35px"><b>{{$data[1]}}</b></p> 
+                    <p style=" font-size:35px"><b>{{$data[5]}}</b></p> 
                 </div>
             </button>
         </div>

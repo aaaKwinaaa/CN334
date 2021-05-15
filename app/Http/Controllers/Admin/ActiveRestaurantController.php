@@ -86,8 +86,11 @@ class ActiveRestaurantController extends Controller
      */
     public function destroy($id)
     {
-        $delete = Restaurant::find($id);
-        $delete->delete();
+        $reviewThisRestaraurant = Review::where('Restaurant_restaurant_id', $id); 
+        $reviewThisRestaraurant->delete();
+ 
+        $reject = Restaurant::find($id);
+        $reject->delete();
 
         return redirect()->route('admin.active.index');
     }

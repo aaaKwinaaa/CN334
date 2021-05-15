@@ -41,10 +41,10 @@ class TaskController extends Controller
         
         
         //Add to Array 
-         $restaurant = Restaurant::all()->where('status_approve', false);
+        $restaurant = Restaurant::all()->where('status_approve', false);
         
-
-        $data = [$wait,$approved,$active,$unActive,$restaurant];
+        $comment = count(Review::all());
+        $data = [$wait,$approved,$active,$unActive,$restaurant,$comment];
         return view('Admin.adminHome',compact('data'));
 
     }

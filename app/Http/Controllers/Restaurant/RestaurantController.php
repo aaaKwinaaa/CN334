@@ -8,6 +8,7 @@ use App\Models\Restaurant;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\Review;
 
+
 class RestaurantController extends Controller
 {
     /**
@@ -146,8 +147,9 @@ class RestaurantController extends Controller
  
         $reject = Restaurant::find($id);
         $reject->delete();
+        
 
-        return redirect()->route('admin.task.index');
+        return redirect()->route('restaurant.manage.index');
     }
 
   
