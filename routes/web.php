@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Restaurant\RestaurantController;
 use App\Http\Controllers\Restaurant\ProfileRestaurantController;
+use App\Http\Controllers\Restaurant\CommentRestaurantController;
 
 
 use App\Http\Controllers\Reviewer\ReviewerController;
@@ -70,6 +71,9 @@ Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.', 'middleware' => [
 
     //Profile Management
     Route::resource('profile',ProfileRestaurantController::class);
+
+    //Comment Management
+    Route::resource('comment',CommentRestaurantController::class);
    
 
 

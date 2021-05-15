@@ -133,7 +133,7 @@
               <div class="hidden fixed top-0 right-0 px-6 py-2 sm:block">
                   @auth
                       <a href="{{ url('/home') }}" class="w3-bar-item w3-button">Home</a>
-                      <a href="#about" class="w3-bar-item w3-button">About</a>
+                      <a href="#about" class="w3-bar-item w3-button">About Us</a>
                   @else
                       <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>
 
@@ -160,7 +160,7 @@
   <div class="w3-content" style="max-width:1100px">
 
     <!-- About Section -->
-    {{-- <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-row w3-padding-64" id="about">
       <div class="w3-col m6 w3-padding-large w3-hide-small">
         <img src="/w3images/tablesetting2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
         <img src="img_avatar.png" alt="Avatar" class="avatar">
@@ -174,7 +174,7 @@
       </div>
     </div>
     
-    <hr> --}}
+    <hr> 
     
     
   <!-- End page content -->

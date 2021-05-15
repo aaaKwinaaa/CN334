@@ -115,10 +115,10 @@
           .dropdown:hover .dropdown-content {
             display: block;
           }
-            .chip {
+          .chip {
             display: inline-block;
             padding: 0 20px;
-            height: auto;
+            height: 140px;
             width: 300px;
             font-size: 13px;
             line-height: 30px;

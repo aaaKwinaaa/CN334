@@ -121,6 +121,10 @@
                                     
                                 </form>
                             </div>
+                            <a class="btn " style="font-size:15px;background-color:rgb(112, 178, 253);width: 150px"  href="{{ route('restaurant.comment.show', $item->id) }}" title="view">
+                                View Comment 
+                                
+                            </a>
                             
                         </div>
                     @endif
