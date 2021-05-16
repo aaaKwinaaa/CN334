@@ -33,7 +33,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Food Review') }}
+                    {{ config('app.name', 'Revoir') }}
                 </a> --}}
                 <a class="navbar-brand ml-3"  style="color:rgb(0, 0, 0)" >
                     FoodReview

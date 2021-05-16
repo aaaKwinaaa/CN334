@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>FoodReview Admin</title>
+    <title>Revoir Admin</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -44,7 +44,7 @@
                 <div class="container"  >
                     {{-- <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span> --}}
                     <a class="navbar-brand ml-3"  style="color:rgb(255, 255, 255)" href="{{ url('/') }}">
-                        FoodReview Admin
+                        Revoir Admin
                     </a>
                     <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>Food Review</title>
+        <title>Revoir</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -133,7 +133,7 @@
   <div class="w3-top">
     
     <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-      <a href="/" class=" w3-button">Food Review</a>
+      <a href="/" class=" w3-button">Revoir</a>
       
       <!-- Right-sided navbar links. Hide them on small screens -->
       @if(Route::has('login'))
@@ -156,7 +156,7 @@
   <!-- Header -->
   <header class="" style="max-width:1600px;min-width:500px" id="home">
       <img class="w3-image" src="/image/homepage-bg.jpg" alt="Hamburger Catering" width="1600px" height="400px">
-      <h1 class="centered"  style=" color:rgb(255, 255, 255);font-size: 100px">Food Review</h1>
+      <h1 class="centered"  style=" color:rgb(255, 255, 255);font-size: 100px">Revoir</h1>
       <a id="btn1" type="button" style="width: 200px;height:35px; font-size:15px" class="btn btn-warning"  href="{{ route('login') }}"> Review Now</a>
       
  

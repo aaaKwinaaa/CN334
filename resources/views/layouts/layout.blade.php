@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>Food Review</title>
+        <title>Revoir</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -141,7 +141,7 @@
     
     <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
       {{-- <a href="{{ url('/') }}"  class="w3-bar-item w3-button" >Home</a> --}}
-      <a href="{{ url('/home') }}" style=""  class=" w3-button">Food Review</a>
+      <a href="{{ url('/home') }}" style=""  class=" w3-button">Revoir</a>
       
       
       <!-- Right-sided navbar links. Hide them on small screens -->
@@ -151,7 +151,7 @@
                     @auth
                         <a href="{{ url('/') }}" class="w3-bar-item w3-button">Home</a>
                         {{-- <a href="#about" class="w3-bar-item w3-button">About</a> --}}
-                        <a href="{{ url('/home') }}" style=""  class=" w3-button">Food Review</a>
+                        <a href="{{ url('/home') }}" style=""  class=" w3-button">Revoir</a>
                     @else
                         <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>
 
