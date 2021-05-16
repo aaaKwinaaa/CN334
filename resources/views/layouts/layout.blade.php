@@ -118,7 +118,7 @@
           .chip {
             display: inline-block;
             padding: 0 20px;
-            height: 140px;
+            height: auto;
             width: 300px;
             font-size: 13px;
             line-height: 30px;
@@ -150,7 +150,7 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-2 sm:block">
                     @auth
                         <a href="{{ url('/') }}" class="w3-bar-item w3-button">Home</a>
-                        <a href="#about" class="w3-bar-item w3-button">About</a>
+                        {{-- <a href="#about" class="w3-bar-item w3-button">About</a> --}}
                         <a href="{{ url('/home') }}" style=""  class=" w3-button">Food Review</a>
                     @else
                         <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>

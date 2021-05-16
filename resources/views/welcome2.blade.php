@@ -114,6 +114,13 @@
           .dropdown:hover .dropdown-content {
             display: block;
           }
+
+          .avatar {
+            vertical-align: middle;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+          }
           </style>
 
         <!-- Script -->
@@ -133,7 +140,7 @@
               <div class="hidden fixed top-0 right-0 px-6 py-2 sm:block">
                   @auth
                       <a href="{{ url('/home') }}" class="w3-bar-item w3-button">Home</a>
-                      <a href="#about" class="w3-bar-item w3-button">About Us</a>
+                      {{-- <a href="#about" class="w3-bar-item w3-button">About Us</a> --}}
                   @else
                       <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>
 
@@ -157,29 +164,28 @@
   <body>
     
   <!-- Page content -->
-  <div class="w3-content" style="max-width:1100px">
+  <div class="container" style="max-width:1100px">
 
     <!-- About Section -->
-    <div class="w3-row w3-padding-64" id="about">
-      <div class="w3-col m6 w3-padding-large w3-hide-small">
-        <img src="/w3images/tablesetting2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
-        <img src="img_avatar.png" alt="Avatar" class="avatar">
-      </div>
+    <div class="row mt-5" id="about">
+      {{-- <div class="col-4">
+        <img src="image/avatar/dome.jpg" alt="Avatar" class="avatar">
+        <p class="mt-3 mx-2">SAHATSAWAT  KEWJAROEN</p>
+      </div> --}}
+      
+     
 
-      <div class="w3-col m6 w3-padding-large">
+      {{-- <div class="w3-col m6 w3-padding-large">
         <h1 class="w3-center">About Catering</h1><br>
         <h5 class="w3-center">Tradition since 1889</h5>
         <p class="w3-large">The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.We only use <span class="w3-tag w3-light-grey">seasonal</span> ingredients.</p>
         <p class="w3-large w3-text-grey w3-hide-medium">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
+      </div> --}}
     </div>
-    
-    <hr> 
-    
-    
-  <!-- End page content -->
-  </div>
 
-  <!-- Footer -->
+    
+    
+    <!-- End page content -->
+  </div>
   </body>
 </html>
