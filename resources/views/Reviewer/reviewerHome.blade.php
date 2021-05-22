@@ -9,7 +9,8 @@
                     <div class="container">
                         <div class="row justify-content-center mb-5 pb-3">
                             <div class="col-md-7 heading-section ftco-animate text-center fadeInUp ftco-animated">
-                                <h2 class="mb-4 mt-4">Restaurant in This Web</h2>
+                                {{-- <img  src="{{ asset('image/revoir-icon.png')}}"  class="mt-3"  style="height:50px"> --}}
+                                <h2 class="mb-4 mt-4">Restaurant on This Web</h2>
                                 <p>All restaurant in this web is waiting you to review.</p>
                             </div>
                         </div>

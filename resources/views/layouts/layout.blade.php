@@ -143,9 +143,10 @@
     <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
       {{-- <a href="{{ url('/') }}"  class="w3-bar-item w3-button" >Home</a> --}}
       
-      <a href="{{ url('/home') }}" style=""  class=" w3-button">
+      <a href="{{ url('/') }}" style=""  class=" w3-button">
         <img  src="{{ asset('image/revoir-icon.png')}}"  class="mx-4"  style="height:40px">
       </a>
+     
       
       
       <!-- Right-sided navbar links. Hide them on small screens -->
@@ -155,7 +156,9 @@
                     @auth
                         <a href="{{ url('/') }}" class="w3-bar-item w3-button">Home</a>
                         {{-- <a href="#about" class="w3-bar-item w3-button">About</a> --}}
-                        <a href="{{ url('/home') }}" style=""  class=" w3-button">Revoir</a>
+                        {{-- <a href="{{ url('/') }}" style=""  class=" w3-button">
+                          <img  src="{{ asset('image/revoir-icon.png')}}"  class="mx-4"  style="height:40px">
+                        </a> --}}
                     @else
                         <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>
 
@@ -208,7 +211,7 @@
         
     
 
-        <main class="py-4 " style="margin-top: 30px">
+        <main class="py-4 mt-5 " style="margin-top: 30px">
              @yield('content')
         </main>
 

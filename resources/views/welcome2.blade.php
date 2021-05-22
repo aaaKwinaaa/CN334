@@ -134,7 +134,9 @@
     
     <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
       {{-- <a href="/" class=" w3-button">Revoir</a> --}}
-      <img src="{{ asset('image/revoir-icon.png')}}"  class="mx-4"  style="height:40px">
+      <a href="{{ url('/') }}" style=""  class=" w3-button">
+        <img  src="{{ asset('image/revoir-icon.png')}}"  class="mx-4"  style="height:40px">
+      </a>
       
       <!-- Right-sided navbar links. Hide them on small screens -->
       @if(Route::has('login'))
