@@ -158,8 +158,28 @@
   </div>
   <!-- Header -->
   <header class="" style="max-width:1600px;min-width:500px" id="home">
-      <img class="w3-image" src="/image/homepage-bg.jpg" alt="Hamburger Catering" width="auto" height="auto">
-      <h1 class="centered"  style=" color:rgb(255, 255, 255);font-size: 100px">Revoir</h1>
+    <img class="mySlides w3-animate-fading" src="/image/homepage-bg1.jpg" width="100%" height="auto">
+    <img class="mySlides w3-animate-fading" src="/image/homepage-bg2.jpg" width="100%" height="auto">
+    <img class="mySlides w3-animate-fading" src="/image/homepage-bg3.jpg" width="100%" height="auto">
+    <img class="mySlides w3-animate-fading" src="/image/homepage-bg4.jpg" width="100%" height="auto">
+
+    <script>
+      var myIndex = 0;
+      carousel();
+      
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 9000);    
+      }
+    </script>
+      <h1 class="centered "  style=" color:rgb(255, 255, 255); font-size: 100px; text-shadow:2px 2px black;">Revoir</h1>
       
       <a id="btn1" type="button" style="width: 200px;height:35px; font-size:15px" class="btn btn-warning"  href="{{ route('login') }}"> Review Now</a>
       
@@ -169,23 +189,6 @@
     
   <!-- Page content -->
   <div class="container" style="max-width:1100px">
-
-    <!-- About Section -->
-    <div class="row mt-5" id="about">
-      {{-- <div class="col-4">
-        <img src="image/avatar/dome.jpg" alt="Avatar" class="avatar">
-        <p class="mt-3 mx-2">SAHATSAWAT  KEWJAROEN</p>
-      </div> --}}
-      
-     
-
-      {{-- <div class="w3-col m6 w3-padding-large">
-        <h1 class="w3-center">About Catering</h1><br>
-        <h5 class="w3-center">Tradition since 1889</h5>
-        <p class="w3-large">The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.We only use <span class="w3-tag w3-light-grey">seasonal</span> ingredients.</p>
-        <p class="w3-large w3-text-grey w3-hide-medium">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div> --}}
-    </div>
 
     
     
