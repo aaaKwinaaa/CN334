@@ -71,7 +71,7 @@
                                                         {{-- @method('PUT') --}}
                                                         <div class="form-group">
                                                             <label for="name">Name</label>
-                                                            <input id="name" type="text" class="form-control " name="name" value="{{ $item->restaurant_Name }}"  />
+                                                            <input id="name" type="text" class="form-control " name="name" value="{{ $item->restaurant_Name }}" maxlength="30" />
                                                         
                                                         </div>
                                                         <div class="form-group">

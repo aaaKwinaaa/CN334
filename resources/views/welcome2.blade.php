@@ -133,7 +133,8 @@
   <div class="w3-top">
     
     <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-      <a href="/" class=" w3-button">Revoir</a>
+      {{-- <a href="/" class=" w3-button">Revoir</a> --}}
+      <img src="{{ asset('image/revoir-icon.png')}}"  class="mx-4"  style="height:40px">
       
       <!-- Right-sided navbar links. Hide them on small screens -->
       @if(Route::has('login'))
@@ -155,8 +156,9 @@
   </div>
   <!-- Header -->
   <header class="" style="max-width:1600px;min-width:500px" id="home">
-      <img class="w3-image" src="/image/homepage-bg.jpg" alt="Hamburger Catering" width="1600px" height="400px">
+      <img class="w3-image" src="/image/homepage-bg.jpg" alt="Hamburger Catering" width="auto" height="auto">
       <h1 class="centered"  style=" color:rgb(255, 255, 255);font-size: 100px">Revoir</h1>
+      
       <a id="btn1" type="button" style="width: 200px;height:35px; font-size:15px" class="btn btn-warning"  href="{{ route('login') }}"> Review Now</a>
       
  

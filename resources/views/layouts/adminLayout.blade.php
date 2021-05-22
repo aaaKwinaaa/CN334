@@ -44,7 +44,7 @@
                 <div class="container"  >
                     {{-- <span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span> --}}
                     <a class="navbar-brand ml-3"  style="color:rgb(255, 255, 255)" href="{{ url('/') }}">
-                        Revoir Admin
+                        <img  src="{{ asset('image/revoir-icon-admin.png')}}"  class="mx-4"  style="height:40px">
                     </a>
                     <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>

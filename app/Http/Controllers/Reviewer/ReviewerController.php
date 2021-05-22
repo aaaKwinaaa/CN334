@@ -72,14 +72,16 @@ class ReviewerController extends Controller
         $reviewThisRestaraurant = Review::all()->where('Restaurant_restaurant_id', $id);
         $rating = 0;
         $count = count($reviewThisRestaraurant);
+
         foreach ($reviewThisRestaraurant as $key => $value) {
             $rating += $reviewThisRestaraurant[$key]->rating;
         };
+
         if(count($reviewThisRestaraurant) <= 0){
             $totalRating = 0;
         }else{
             $totalRating = number_format(($rating / count($reviewThisRestaraurant)), 1, '.', '');
-        }
+        };
         
         
         $data = [$restaurantView,$reviewThisRestaraurant,$totalRating,$count];

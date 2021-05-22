@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
            
                
                 <h2>Create Restaurant</h2>
 
-                <form method="POST" action="{{ route('restaurant.manage.store') }}" enctype="multipart/form-data" >
+                <form class="mt-3" method="POST" action="{{ route('restaurant.manage.store') }}" enctype="multipart/form-data" >
                     @csrf
 
                     <div class="form-group row" >
