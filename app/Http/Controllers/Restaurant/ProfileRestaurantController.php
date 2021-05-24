@@ -93,6 +93,8 @@ class ProfileRestaurantController extends Controller
         return redirect()->route('restaurant.profile.index');
     }
 
+    
+
     /**
      * Remove the specified resource from storage.
      *

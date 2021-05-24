@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DispatchController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Restaurant\RestaurantController;
@@ -35,9 +35,9 @@ Route::get('/', function () {
 
 Auth::routes(['register' => true]);
 
-Route::get('/home', [HomeController::class,'index'])->name('home');
-Route::get('/admin/home',[HomeController::class,'adminHome'])->name('admin.home')->middleware('role_admin');
-Route::get('/reviewer/home',[HomeController::class,'reviewerHome'])->name('reviewer.home')->middleware('role_reviewer');
+Route::get('/home', [DispatchController::class,'index'])->name('home');
+Route::get('/admin/home',[DispatchController::class,'adminHome'])->name('admin.home')->middleware('role_admin');
+Route::get('/reviewer/home',[DispatchController::class,'reviewerHome'])->name('reviewer.home')->middleware('role_reviewer');
 Route::get('/restaurant/home',[RestaurantController::class,'index'])->name('restaurant.home')->middleware('role_restaurant');
 
 
@@ -73,7 +73,7 @@ Route::group(['prefix' => 'restaurant', 'as' => 'restaurant.', 'middleware' => [
     Route::resource('profile',ProfileRestaurantController::class);
 
     //Comment Management
-    Route::resource('comment',CommentRestaurantController::class);
+    Route::get('comment/{id}',[RestaurantController::class,'showComment'])->name('showComment');
    
 
 

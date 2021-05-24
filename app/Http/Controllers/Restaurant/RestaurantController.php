@@ -152,5 +152,25 @@ class RestaurantController extends Controller
         return redirect()->route('restaurant.manage.index');
     }
 
+    public function showComment($id)
+    {
+        
+        $review = Review::all()->where('Restaurant_restaurant_id', $id);
+        $rating = 0;
+        $count = count($review);
+        foreach ($review as $key => $value) {
+            $rating += $review[$key]->rating;
+        };
+        if($count <= 0){
+            $totalRating = 0;
+        }else{
+            $totalRating = number_format(($rating / count($review)), 1, '.', '');
+        }
+        
+        
+        $data = [$review,$totalRating,$count];
+        return view('restaurant.comment', compact('data'));
+    }
+
   
 }

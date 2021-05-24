@@ -19,7 +19,7 @@
                     <div class="container-wrap">
                         <div class="row no-gutters d-flex">
                              @foreach ($data[0] as $item) 
-                                @if ($item->status_active == true)
+                                @if ($item->status_approve == true)
                                     <div class = "card col-3 d-flex ftco-animate fadeInUp ftco-animated  mt-1 " style="width:300px; ">
                                         <img src="{{ asset('image/restaurant/'.$item->photo)}}"  alt="Card image" style="height:175px">
                                         <div class="card-body">

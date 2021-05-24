@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Restaurant;
 use App\Models\Review;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DispatchController;
 
 class ProfileReviewerController extends Controller
 {

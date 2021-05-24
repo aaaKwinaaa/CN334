@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\Restaurant;
 use App\Models\Review;
 
-class HomeController extends Controller
+class DispatchController extends Controller
 {
     /**
      * Create a new controller instance.
