@@ -157,7 +157,7 @@
     </div>
   </div>
   <!-- Header -->
-  <header class="" style="max-width:1600px;min-width:500px" id="home">
+  <header class="" style="max-width:auto;min-width:500px" id="home">
     <img class="mySlides w3-animate-fading" src="/image/homepage-bg1.jpg" width="100%" height="auto">
     <img class="mySlides w3-animate-fading" src="/image/homepage-bg2.jpg" width="100%" height="auto">
     <img class="mySlides w3-animate-fading" src="/image/homepage-bg3.jpg" width="100%" height="auto">
