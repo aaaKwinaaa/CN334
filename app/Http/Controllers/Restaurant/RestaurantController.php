@@ -54,8 +54,6 @@ class RestaurantController extends Controller
         $restaurants->detail = $request->detail;
         $restaurants->phone = $request->phone;
 
-
-        // $restaurants->photo = $request->image;
         if($request->hasFile('image')){
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
@@ -82,7 +80,7 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        $review = Review::where('Restaurant_restaurant_id', $id);
+       
     }
 
     /**

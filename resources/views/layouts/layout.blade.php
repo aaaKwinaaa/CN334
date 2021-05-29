@@ -155,10 +155,6 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-2 sm:block">
                     @auth
                         <a href="{{ url('/') }}" class="w3-bar-item w3-button">Home</a>
-                        {{-- <a href="#about" class="w3-bar-item w3-button">About</a> --}}
-                        {{-- <a href="{{ url('/') }}" style=""  class=" w3-button">
-                          <img  src="{{ asset('image/revoir-icon.png')}}"  class="mx-4"  style="height:40px">
-                        </a> --}}
                     @else
                         <a href="{{ route('login') }}" class="w3-bar-item w3-button">Login</a>
 

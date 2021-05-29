@@ -44,14 +44,19 @@ class ReviewerController extends Controller
     {
         $request->validate([
             'detail' => '',
-            'rating' => '',
+            'rating' => 'required',
             'user_id' => '',
-            'resturant_id' => '',
+            'resturant_id' => 'required',
             
         ]);
         
         $review = new Review;
-        $review->detail = $request->detail;
+        if($request->detail == ''){
+            $review->detail = ' ';
+        }else{
+            $review->detail = $request->detail;
+        }
+        
         $review->rating = $request->rating;
         $review->Restaurant_restaurant_id  = $request->resturant_id;
         $review->User_user_id = auth()->user()->id;
